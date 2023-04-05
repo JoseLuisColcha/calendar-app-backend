@@ -5,7 +5,7 @@ const { Router } = require("express");
 const router = Router();
 const {
   createUser,
-  revalidarToken,
+  revalidateToken,
   loginUser,
 } = require("../controllers/auth");
 
@@ -13,6 +13,6 @@ router.post("/new", createUser);
 
 router.post("/", loginUser);
 
-router.get("/renew", revalidarToken);
+router.get("/renew", revalidateToken);
 
 module.exports = router;
