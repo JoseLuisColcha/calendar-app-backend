@@ -4,12 +4,13 @@
 const { Router } = require("express");
 const { check } = require("express-validator");
 const router = Router();
+const { fileValidator } = require("../middlewares/file-validator");
 const {
   createUser,
   revalidateToken,
   loginUser,
 } = require("../controllers/auth");
-const { fileValidator } = require("../middlewares/file-validator");
+const { validateJWT } = require("../middlewares/validate");
 
 router.post(
   "/new",
@@ -37,6 +38,6 @@ router.post(
   loginUser
 );
 
-router.get("/renew", revalidateToken);
+router.get("/renew", validateJWT, revalidateToken);
 
 module.exports = router;
