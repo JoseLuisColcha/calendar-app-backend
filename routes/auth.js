@@ -25,7 +25,6 @@ router.post(
   ],
   createUser
 );
-
 router.post(
   "/",
   [
